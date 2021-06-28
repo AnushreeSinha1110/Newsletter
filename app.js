@@ -1,4 +1,5 @@
 //jshint esversion:6
+require('dotenv').config();
 const express=require("express");
 const bodyParser=require("body-parser");
 const request=require("request");
@@ -30,10 +31,10 @@ app.post("/",function(req,res){
   };
   const jsonData=JSON.stringify(data);
 
-  const url="https://us1.api.mailchimp.com/3.0/lists/54710eeb8e";
+  const url="https://us1.api.mailchimp.com/3.0/lists/"+process.env.LIST_ID;
   const options={
     method:"post",
-    auth:"Anushree:34e3d28e3257722294f935e7e8f66e21-us1"
+    auth:"Anushree:"+process.env.AP_Key
   };
 
 const request=https.request(url,options,function(response){
@@ -68,9 +69,3 @@ if(port==null||port==""){
 app.listen(port, function(){
   console.log("server has started");
 });
-
-//API Key
-//34e3d28e3257722294f935e7e8f66e21-us1
-
-//List ID
-//54710eeb8e
