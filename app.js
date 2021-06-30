@@ -7,7 +7,7 @@ const https=require("https");
 
 const app=express();
 
-app.use(express.static("public"));//thid hepls in using static files that are css and images
+app.use(express.static("public"));//this helps in using static files that are css and images
 app.use(bodyParser.urlencoded({extended:true}));
 
 app.get("/",function(req,res){
